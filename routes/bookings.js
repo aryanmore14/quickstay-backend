@@ -40,4 +40,32 @@ router.get('/my', protect, async (req, res) => {
   }
 });
 
+// @route   PUT /api/bookings/:id/cancel
+// @desc    Cancel a booking
+router.put('/:id/cancel', protect, async (req, res) => {
+  try {
+    const booking = await Booking.findById(req.params.id);
+
+    if (!booking) {
+      return res.status(404).json({ message: 'Booking not found' });
+    }
+
+    if (booking.user.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized' });
+    }
+
+    if (booking.status === 'cancelled') {
+      return res.status(400).json({ message: 'Booking already cancelled' });
+    }
+
+    booking.status = 'cancelled';
+    await booking.save();
+
+    const updated = await Booking.findById(booking._id).populate('hotel', 'name location price image');
+    res.json(updated);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;

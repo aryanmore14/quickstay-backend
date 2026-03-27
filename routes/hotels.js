@@ -4,17 +4,30 @@ const Hotel = require('../models/Hotel');
 const router = express.Router();
 
 // @route   GET /api/hotels
-// @desc    Get all hotels (optional location filter)
+// @desc    Get all hotels (search, location filter, sort)
 router.get('/', async (req, res) => {
   try {
-    const { location } = req.query;
+    const { location, search, sort } = req.query;
     let filter = {};
 
     if (location && location !== 'All') {
       filter.location = { $regex: location, $options: 'i' };
     }
 
-    const hotels = await Hotel.find(filter).sort({ rating: -1 });
+    if (search) {
+      filter.$or = [
+        { name: { $regex: search, $options: 'i' } },
+        { location: { $regex: search, $options: 'i' } },
+        { description: { $regex: search, $options: 'i' } },
+      ];
+    }
+
+    let sortOption = { rating: -1 };
+    if (sort === 'price_low') sortOption = { price: 1 };
+    if (sort === 'price_high') sortOption = { price: -1 };
+    if (sort === 'name') sortOption = { name: 1 };
+
+    const hotels = await Hotel.find(filter).sort(sortOption);
     res.json(hotels);
   } catch (error) {
     res.status(500).json({ message: error.message });
