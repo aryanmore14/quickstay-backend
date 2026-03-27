@@ -432,7 +432,7 @@ const hotels = [
     location: 'Powai',
     price: 4200,
     rating: 4.0,
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?w=800&q=80',
     images: [
       'https://images.unsplash.com/photo-1551516594-56cb78394645?w=800&q=80',
       'https://images.unsplash.com/photo-1501876725168-00c445821c9e?w=800&q=80',
