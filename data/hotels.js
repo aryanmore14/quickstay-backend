@@ -1,5 +1,5 @@
 const GALLERY = {
-  lobby: 'https://images.unsplash.com/photo-1590490360182-c33d82de4e38?w=800&q=80',
+  lobby: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80',
   room1: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
   room2: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80',
   room3: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80',
@@ -107,7 +107,7 @@ const hotels = [
     location: 'Juhu',
     price: 4000,
     rating: 4.0,
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d82de4e38?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80',
     images: [GALLERY.room3, GALLERY.beach, GALLERY.dining],
     description:
       'A charming mid-range hotel near Juhu Beach. Known for warm hospitality, clean rooms, and proximity to entertainment hubs and the beach.',
