@@ -38,6 +38,25 @@ const hotelSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    tags: {
+      type: [String],
+      default: [],
+    },
+    discount: {
+      type: Number,
+      default: 0,
+    },
+    originalPrice: {
+      type: Number,
+    },
+    bookingCount: {
+      type: Number,
+      default: 0,
+    },
+    coordinates: {
+      lat: { type: Number },
+      lng: { type: Number },
+    },
   },
   { timestamps: true }
 );

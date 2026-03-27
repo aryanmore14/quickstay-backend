@@ -1,3 +1,20 @@
+// Mumbai hotel coordinates (approximate)
+const COORDS = {
+  colaba: { lat: 18.9220, lng: 72.8347 },
+  nariman: { lat: 18.9256, lng: 72.8242 },
+  juhu: { lat: 19.0883, lng: 72.8269 },
+  bandra: { lat: 19.0596, lng: 72.8295 },
+  andheri: { lat: 19.1136, lng: 72.8697 },
+  powai: { lat: 19.1176, lng: 72.9060 },
+  lowerParel: { lat: 18.9936, lng: 72.8311 },
+  dadar: { lat: 19.0178, lng: 72.8478 },
+  fort: { lat: 18.9338, lng: 72.8358 },
+  central: { lat: 18.9712, lng: 72.8194 },
+  vileparle: { lat: 19.0969, lng: 72.8493 },
+  navi: { lat: 19.0330, lng: 73.0297 },
+  madh: { lat: 19.1524, lng: 72.7965 },
+};
+
 const GALLERY = {
   lobby: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80',
   room1: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
@@ -21,9 +38,12 @@ const hotels = [
     rating: 4.9,
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80',
     images: [GALLERY.room1, GALLERY.pool, GALLERY.dining, GALLERY.spa],
-    description:
-      'The iconic Taj Mahal Palace, a symbol of Mumbai hospitality since 1903. Overlooking the Gateway of India with opulent rooms, world-class dining, and an award-winning spa.',
+    description: 'The iconic Taj Mahal Palace, a symbol of Mumbai hospitality since 1903. Overlooking the Gateway of India with opulent rooms, world-class dining, and an award-winning spa.',
     amenities: ['Free WiFi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Gym', 'Room Service', 'Valet Parking'],
+    tags: ['Luxury', 'Iconic', 'Trending'],
+    discount: 0,
+    bookingCount: 48,
+    coordinates: COORDS.colaba,
   },
   {
     name: 'Trident Nariman Point',
@@ -32,9 +52,13 @@ const hotels = [
     rating: 4.8,
     image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80',
     images: [GALLERY.room2, GALLERY.view, GALLERY.dining, GALLERY.pool],
-    description:
-      'Luxurious sea-facing hotel at Nariman Point with stunning views of Marine Drive. Features elegant rooms, rooftop pool, and fine-dining restaurants.',
+    description: 'Luxurious sea-facing hotel at Nariman Point with stunning views of Marine Drive. Features elegant rooms, rooftop pool, and fine-dining restaurants.',
     amenities: ['Free WiFi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Gym', 'Sea View', 'Business Center'],
+    tags: ['Luxury', 'Sea View'],
+    discount: 15,
+    originalPrice: 14700,
+    bookingCount: 35,
+    coordinates: COORDS.nariman,
   },
   {
     name: 'The Oberoi Mumbai',
@@ -43,9 +67,12 @@ const hotels = [
     rating: 4.9,
     image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80',
     images: [GALLERY.room3, GALLERY.spa, GALLERY.lounge, GALLERY.view],
-    description:
-      'An ultra-luxury retreat at Nariman Point with panoramic ocean views. Known for its impeccable service, Michelin-level cuisine, and serene spa experiences.',
+    description: 'An ultra-luxury retreat at Nariman Point with panoramic ocean views. Known for its impeccable service, Michelin-level cuisine, and serene spa experiences.',
     amenities: ['Free WiFi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Gym', 'Butler Service', 'Limousine'],
+    tags: ['Luxury', 'Premium'],
+    discount: 0,
+    bookingCount: 42,
+    coordinates: COORDS.nariman,
   },
   {
     name: 'JW Marriott Juhu',
@@ -54,9 +81,13 @@ const hotels = [
     rating: 4.7,
     image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80',
     images: [GALLERY.beach, GALLERY.room1, GALLERY.dining, GALLERY.pool],
-    description:
-      'Premium beachfront property on Juhu Beach. Features multiple award-winning restaurants, a luxurious spa, and rooms with breathtaking Arabian Sea views.',
+    description: 'Premium beachfront property on Juhu Beach. Features multiple award-winning restaurants, a luxurious spa, and rooms with breathtaking Arabian Sea views.',
     amenities: ['Free WiFi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Gym', 'Beach Access', 'Kids Club'],
+    tags: ['Beach', 'Family Friendly'],
+    discount: 20,
+    originalPrice: 13750,
+    bookingCount: 55,
+    coordinates: COORDS.juhu,
   },
   {
     name: 'ITC Maratha',
@@ -65,9 +96,13 @@ const hotels = [
     rating: 4.7,
     image: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&q=80',
     images: [GALLERY.lobby, GALLERY.room2, GALLERY.spa, GALLERY.dining],
-    description:
-      'A grand 5-star hotel near Mumbai Airport reflecting Maratha heritage. Renowned for Peshawri restaurant, luxurious Kaya Kalp spa, and regal architecture.',
+    description: 'A grand 5-star hotel near Mumbai Airport reflecting Maratha heritage. Renowned for Peshawri restaurant, luxurious Kaya Kalp spa, and regal architecture.',
     amenities: ['Free WiFi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Gym', 'Airport Shuttle', 'Business Center'],
+    tags: ['Heritage', 'Luxury'],
+    discount: 10,
+    originalPrice: 11667,
+    bookingCount: 38,
+    coordinates: COORDS.andheri,
   },
   {
     name: 'The Leela Mumbai',
@@ -76,9 +111,12 @@ const hotels = [
     rating: 4.6,
     image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
     images: [GALLERY.room3, GALLERY.pool, GALLERY.lounge, GALLERY.gym],
-    description:
-      'An elegant 5-star property near the airport inspired by the Lotus Palace. Offers world-class dining, a lush pool area, and spacious rooms with modern luxury.',
+    description: 'An elegant 5-star property near the airport inspired by the Lotus Palace. Offers world-class dining, a lush pool area, and spacious rooms with modern luxury.',
     amenities: ['Free WiFi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Gym', 'Airport Shuttle', 'Concierge'],
+    tags: ['Luxury'],
+    discount: 0,
+    bookingCount: 30,
+    coordinates: COORDS.andheri,
   },
   {
     name: 'Sofitel Mumbai BKC',
@@ -87,9 +125,12 @@ const hotels = [
     rating: 4.6,
     image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80',
     images: [GALLERY.room1, GALLERY.dining, GALLERY.view, GALLERY.spa],
-    description:
-      'French luxury in the heart of Bandra Kurla Complex. Chic interiors, Artisan cocktail bar, Jyran tandoor dining, and a rooftop infinity pool.',
+    description: 'French luxury in the heart of Bandra Kurla Complex. Chic interiors, Artisan cocktail bar, Jyran tandoor dining, and a rooftop infinity pool.',
     amenities: ['Free WiFi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Gym', 'Rooftop Lounge', 'Business Center'],
+    tags: ['Trending', 'Rooftop'],
+    discount: 0,
+    bookingCount: 27,
+    coordinates: COORDS.bandra,
   },
   {
     name: 'Hotel Suba International',
@@ -98,9 +139,13 @@ const hotels = [
     rating: 4.1,
     image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80',
     images: [GALLERY.room2, GALLERY.lobby, GALLERY.dining],
-    description:
-      'Well-located mid-range hotel in Andheri East near the airport. Offers comfortable rooms, multi-cuisine restaurant, and excellent business facilities.',
+    description: 'Well-located mid-range hotel in Andheri East near the airport. Offers comfortable rooms, multi-cuisine restaurant, and excellent business facilities.',
     amenities: ['Free WiFi', 'Restaurant', 'Room Service', 'AC', 'Airport Shuttle', 'Laundry'],
+    tags: ['Best Value', 'Business'],
+    discount: 25,
+    originalPrice: 6000,
+    bookingCount: 22,
+    coordinates: COORDS.andheri,
   },
   {
     name: 'Hotel Bawa Continental',
@@ -109,9 +154,12 @@ const hotels = [
     rating: 4.0,
     image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80',
     images: [GALLERY.room3, GALLERY.beach, GALLERY.dining],
-    description:
-      'A charming mid-range hotel near Juhu Beach. Known for warm hospitality, clean rooms, and proximity to entertainment hubs and the beach.',
+    description: 'A charming mid-range hotel near Juhu Beach. Known for warm hospitality, clean rooms, and proximity to entertainment hubs and the beach.',
     amenities: ['Free WiFi', 'Restaurant', 'Room Service', 'AC', 'Laundry', 'Travel Desk'],
+    tags: ['Best Value', 'Beach'],
+    discount: 0,
+    bookingCount: 18,
+    coordinates: COORDS.juhu,
   },
   {
     name: 'Residency Hotel Fort',
@@ -120,9 +168,12 @@ const hotels = [
     rating: 4.0,
     image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
     images: [GALLERY.room1, GALLERY.lobby, GALLERY.dining],
-    description:
-      'Heritage-style mid-range hotel in the Fort business district. Walking distance to CST station, Gateway of India, and major corporate offices.',
+    description: 'Heritage-style mid-range hotel in the Fort business district. Walking distance to CST station, Gateway of India, and major corporate offices.',
     amenities: ['Free WiFi', 'Restaurant', 'Room Service', 'AC', 'Business Center', 'Laundry'],
+    tags: ['Heritage', 'Business'],
+    discount: 0,
+    bookingCount: 15,
+    coordinates: COORDS.fort,
   },
   {
     name: 'Hotel Sahil',
@@ -131,9 +182,12 @@ const hotels = [
     rating: 3.8,
     image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80',
     images: [GALLERY.room2, GALLERY.lobby],
-    description:
-      'Affordable comfort near Mumbai Central station. A popular choice for business and leisure travelers with clean rooms and reliable service.',
+    description: 'Affordable comfort near Mumbai Central station. A popular choice for business and leisure travelers with clean rooms and reliable service.',
     amenities: ['Free WiFi', 'Restaurant', 'AC', 'Room Service', 'Parking', 'Laundry'],
+    tags: ['Budget Friendly'],
+    discount: 0,
+    bookingCount: 12,
+    coordinates: COORDS.central,
   },
   {
     name: 'Fern Residency',
@@ -142,9 +196,13 @@ const hotels = [
     rating: 4.2,
     image: 'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80',
     images: [GALLERY.room3, GALLERY.gym, GALLERY.dining],
-    description:
-      'Eco-friendly boutique hotel in trendy Bandra West. Green-certified with stylish rooms, organic restaurant, and proximity to Bandstand and Linking Road.',
+    description: 'Eco-friendly boutique hotel in trendy Bandra West. Green-certified with stylish rooms, organic restaurant, and proximity to Bandstand and Linking Road.',
     amenities: ['Free WiFi', 'Restaurant', 'Gym', 'AC', 'Eco-Friendly', 'Laundry'],
+    tags: ['Eco-Friendly', 'Trending'],
+    discount: 15,
+    originalPrice: 6470,
+    bookingCount: 20,
+    coordinates: COORDS.bandra,
   },
   {
     name: 'Radisson Mumbai Andheri',
@@ -153,9 +211,12 @@ const hotels = [
     rating: 4.3,
     image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80',
     images: [GALLERY.room1, GALLERY.pool, GALLERY.dining, GALLERY.gym],
-    description:
-      'Modern 4-star hotel in Andheri East with excellent airport connectivity. Features contemporary rooms, multi-cuisine dining, and a well-equipped fitness center.',
+    description: 'Modern 4-star hotel in Andheri East with excellent airport connectivity. Features contemporary rooms, multi-cuisine dining, and a well-equipped fitness center.',
     amenities: ['Free WiFi', 'Pool', 'Restaurant', 'Bar', 'Gym', 'Airport Shuttle', 'Business Center'],
+    tags: ['Business'],
+    discount: 0,
+    bookingCount: 25,
+    coordinates: COORDS.andheri,
   },
   {
     name: 'The Resort Mumbai',
@@ -164,9 +225,13 @@ const hotels = [
     rating: 4.4,
     image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80',
     images: [GALLERY.beach, GALLERY.pool, GALLERY.room2, GALLERY.spa],
-    description:
-      'Beach resort escape on Madh Island with 14 acres of lush gardens. Perfect for a weekend getaway with pools, beach access, and adventure activities.',
+    description: 'Beach resort escape on Madh Island with 14 acres of lush gardens. Perfect for a weekend getaway with pools, beach access, and adventure activities.',
     amenities: ['Free WiFi', 'Pool', 'Beach Access', 'Restaurant', 'Bar', 'Spa', 'Adventure Sports'],
+    tags: ['Beach', 'Resort', 'Trending'],
+    discount: 20,
+    originalPrice: 8750,
+    bookingCount: 32,
+    coordinates: COORDS.madh,
   },
   {
     name: 'Novotel Mumbai Juhu Beach',
@@ -175,9 +240,12 @@ const hotels = [
     rating: 4.4,
     image: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=800&q=80',
     images: [GALLERY.beach, GALLERY.room3, GALLERY.pool, GALLERY.dining],
-    description:
-      'Contemporary beachside hotel on Juhu Beach with modern amenities. Features family-friendly rooms, an infinity pool, and vibrant all-day dining.',
+    description: 'Contemporary beachside hotel on Juhu Beach with modern amenities. Features family-friendly rooms, an infinity pool, and vibrant all-day dining.',
     amenities: ['Free WiFi', 'Pool', 'Restaurant', 'Bar', 'Gym', 'Kids Area', 'Beach View'],
+    tags: ['Family Friendly', 'Beach'],
+    discount: 0,
+    bookingCount: 28,
+    coordinates: COORDS.juhu,
   },
   {
     name: 'Zostel Mumbai',
@@ -186,9 +254,12 @@ const hotels = [
     rating: 4.2,
     image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&q=80',
     images: [GALLERY.lounge, GALLERY.room1],
-    description:
-      'India\'s largest backpacker hostel chain with a vibrant Colaba location. Dorm beds and private rooms near the Gateway of India, with a buzzing common area.',
+    description: 'India\'s largest backpacker hostel chain with a vibrant Colaba location. Dorm beds and private rooms near the Gateway of India, with a buzzing common area.',
     amenities: ['Free WiFi', 'Common Kitchen', 'Lounge', 'Lockers', 'AC', 'Tour Desk'],
+    tags: ['Backpacker', 'Best Value'],
+    discount: 0,
+    bookingCount: 40,
+    coordinates: COORDS.colaba,
   },
   {
     name: 'Backpacker Panda Colaba',
@@ -197,9 +268,13 @@ const hotels = [
     rating: 4.0,
     image: 'https://images.unsplash.com/photo-1520277739336-7bf67edfa768?w=800&q=80',
     images: [GALLERY.lounge, GALLERY.room2],
-    description:
-      'Fun and affordable hostel in the heart of Colaba. Perfect for solo travelers and backpackers with cozy dorms, a rooftop chill zone, and city tour packages.',
+    description: 'Fun and affordable hostel in the heart of Colaba. Perfect for solo travelers and backpackers with cozy dorms, a rooftop chill zone, and city tour packages.',
     amenities: ['Free WiFi', 'Common Area', 'Lockers', 'AC', 'Rooftop', 'Tour Packages'],
+    tags: ['Backpacker', 'Budget Friendly'],
+    discount: 10,
+    originalPrice: 1111,
+    bookingCount: 33,
+    coordinates: COORDS.colaba,
   },
   {
     name: 'Budget Inn Andheri',
@@ -208,9 +283,12 @@ const hotels = [
     rating: 3.6,
     image: 'https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=800&q=80',
     images: [GALLERY.room3, GALLERY.lobby],
-    description:
-      'No-frills budget hotel near Andheri station and airport. Clean rooms, 24-hour front desk, and great transport connectivity at pocket-friendly prices.',
+    description: 'No-frills budget hotel near Andheri station and airport. Clean rooms, 24-hour front desk, and great transport connectivity at pocket-friendly prices.',
     amenities: ['Free WiFi', 'AC', '24hr Front Desk', 'Parking', 'Laundry'],
+    tags: ['Budget Friendly'],
+    discount: 0,
+    bookingCount: 10,
+    coordinates: COORDS.andheri,
   },
   {
     name: 'City Guest House',
@@ -219,9 +297,12 @@ const hotels = [
     rating: 3.5,
     image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&q=80',
     images: [GALLERY.room1, GALLERY.lobby],
-    description:
-      'Simple and affordable guest house in Dadar, one of Mumbai\'s best-connected suburbs. Ideal for short stays with basic amenities and a friendly atmosphere.',
+    description: 'Simple and affordable guest house in Dadar, one of Mumbai\'s best-connected suburbs. Ideal for short stays with basic amenities and a friendly atmosphere.',
     amenities: ['Free WiFi', 'AC', 'TV', '24hr Front Desk', 'Laundry'],
+    tags: ['Budget Friendly'],
+    discount: 0,
+    bookingCount: 8,
+    coordinates: COORDS.dadar,
   },
   {
     name: 'Hotel Kohinoor Continental',
@@ -230,9 +311,12 @@ const hotels = [
     rating: 4.1,
     image: 'https://images.unsplash.com/photo-1587213811864-46e59f6873b1?w=800&q=80',
     images: [GALLERY.room2, GALLERY.dining, GALLERY.gym],
-    description:
-      'Popular 4-star hotel near the international airport. Well-appointed rooms, excellent Indian restaurant, banquet halls, and business-class amenities.',
+    description: 'Popular 4-star hotel near the international airport. Well-appointed rooms, excellent Indian restaurant, banquet halls, and business-class amenities.',
     amenities: ['Free WiFi', 'Restaurant', 'Bar', 'Gym', 'Business Center', 'Airport Shuttle', 'Banquet Hall'],
+    tags: ['Business', 'Best Value'],
+    discount: 0,
+    bookingCount: 19,
+    coordinates: COORDS.andheri,
   },
   {
     name: 'The Orchid Hotel',
@@ -241,9 +325,12 @@ const hotels = [
     rating: 4.2,
     image: 'https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=800&q=80',
     images: [GALLERY.room3, GALLERY.pool, GALLERY.dining, GALLERY.gym],
-    description:
-      'Asia\'s first ecotel certified 5-star hotel near the domestic airport. Rooftop pool, eco-conscious rooms, and award-winning restaurant Mostly Grills.',
+    description: 'Asia\'s first ecotel certified 5-star hotel near the domestic airport. Rooftop pool, eco-conscious rooms, and award-winning restaurant Mostly Grills.',
     amenities: ['Free WiFi', 'Pool', 'Restaurant', 'Gym', 'Eco-Friendly', 'Airport Shuttle', 'Rooftop'],
+    tags: ['Eco-Friendly', 'Rooftop'],
+    discount: 0,
+    bookingCount: 21,
+    coordinates: COORDS.vileparle,
   },
   {
     name: 'Hyatt Regency Mumbai',
@@ -252,9 +339,13 @@ const hotels = [
     rating: 4.5,
     image: 'https://images.unsplash.com/photo-1519449556851-5720b33024e7?w=800&q=80',
     images: [GALLERY.room1, GALLERY.pool, GALLERY.spa, GALLERY.view],
-    description:
-      'Upscale hotel in Andheri with stunning city views. Features elegant rooms, an outdoor pool, Stax restaurant, and excellent conference facilities.',
+    description: 'Upscale hotel in Andheri with stunning city views. Features elegant rooms, an outdoor pool, Stax restaurant, and excellent conference facilities.',
     amenities: ['Free WiFi', 'Pool', 'Spa', 'Restaurant', 'Bar', 'Gym', 'Business Center', 'Concierge'],
+    tags: ['Premium', 'Trending'],
+    discount: 10,
+    originalPrice: 9444,
+    bookingCount: 31,
+    coordinates: COORDS.andheri,
   },
   {
     name: 'Courtyard by Marriott',
@@ -263,9 +354,12 @@ const hotels = [
     rating: 4.3,
     image: 'https://images.unsplash.com/photo-1529290130-4ca3753253ae?w=800&q=80',
     images: [GALLERY.room2, GALLERY.pool, GALLERY.dining],
-    description:
-      'Modern business hotel in Navi Mumbai with spacious rooms and great connectivity to Pune and South Mumbai. Ideal for corporate travelers.',
+    description: 'Modern business hotel in Navi Mumbai with spacious rooms and great connectivity to Pune and South Mumbai. Ideal for corporate travelers.',
     amenities: ['Free WiFi', 'Pool', 'Restaurant', 'Bar', 'Gym', 'Business Center', 'Parking'],
+    tags: ['Business'],
+    discount: 0,
+    bookingCount: 17,
+    coordinates: COORDS.navi,
   },
   {
     name: 'Keys Select by Lemon Tree',
@@ -274,9 +368,13 @@ const hotels = [
     rating: 4.0,
     image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&q=80',
     images: [GALLERY.room3, GALLERY.dining, GALLERY.gym],
-    description:
-      'Vibrant mid-range hotel in the IT hub of Powai, near IIT Bombay and Powai Lake. Cheerful rooms, multi-cuisine restaurant, and good value for money.',
+    description: 'Vibrant mid-range hotel in the IT hub of Powai, near IIT Bombay and Powai Lake. Cheerful rooms, multi-cuisine restaurant, and good value for money.',
     amenities: ['Free WiFi', 'Restaurant', 'Gym', 'AC', 'Parking', 'Laundry', 'Meeting Room'],
+    tags: ['Best Value'],
+    discount: 15,
+    originalPrice: 4941,
+    bookingCount: 16,
+    coordinates: COORDS.powai,
   },
   {
     name: 'Dragonfly Hotel',
@@ -285,9 +383,12 @@ const hotels = [
     rating: 4.1,
     image: 'https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?w=800&q=80',
     images: [GALLERY.room1, GALLERY.lounge, GALLERY.view],
-    description:
-      'Boutique hotel in the commercial hub of Lower Parel. Stylish interiors, rooftop views, proximity to Phoenix Palladium mall and corporate offices.',
+    description: 'Boutique hotel in the commercial hub of Lower Parel. Stylish interiors, rooftop views, proximity to Phoenix Palladium mall and corporate offices.',
     amenities: ['Free WiFi', 'Restaurant', 'Bar', 'AC', 'Gym', 'Rooftop', 'Business Center'],
+    tags: ['Boutique', 'Rooftop'],
+    discount: 0,
+    bookingCount: 14,
+    coordinates: COORDS.lowerParel,
   },
 ];
 
