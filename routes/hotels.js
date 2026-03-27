@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const { location, search, sort } = req.query;
-    let filter = {};
+    let filter = { isActive: { $ne: false } };
 
     if (location && location !== 'All') {
       filter.location = { $regex: location, $options: 'i' };

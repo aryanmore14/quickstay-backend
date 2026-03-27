@@ -72,7 +72,7 @@ router.get('/bookings', protect, admin, async (req, res) => {
     const filter = {};
     if (status && status !== 'all') filter.status = status;
     if (startDate) filter.checkIn = { $gte: new Date(startDate) };
-    if (endDate) filter.checkOut = { ...filter.checkOut, $lte: new Date(endDate) };
+    if (endDate) filter.checkOut = { $lte: new Date(endDate) };
 
     const bookings = await Booking.find(filter)
       .populate('user', 'name email')
