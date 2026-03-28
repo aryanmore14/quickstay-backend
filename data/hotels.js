@@ -436,7 +436,7 @@ const hotels = [
     images: [
       'https://images.unsplash.com/photo-1606046604972-77cc76aee944?w=800&q=80',
       'https://images.unsplash.com/photo-1501876725168-00c445821c9e?w=800&q=80',
-      'https://images.unsplash.com/photo-1598928506311-c55ez463143d?w=800&q=80',
+      'https://images.unsplash.com/photo-1590490360182-c33d8f9b473e?w=800&q=80',
     ],
     description: 'Vibrant mid-range hotel in the IT hub of Powai, near IIT Bombay and Powai Lake. Cheerful rooms, multi-cuisine restaurant, and good value for money.',
     amenities: ['Free WiFi', 'Restaurant', 'Gym', 'AC', 'Parking', 'Laundry', 'Meeting Room'],

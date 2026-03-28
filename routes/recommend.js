@@ -5,6 +5,8 @@ const { protect } = require('../middleware/auth');
 
 const router = express.Router();
 
+const ACTIVE_FILTER = { isActive: { $ne: false } };
+
 // @route   GET /api/recommend
 // @desc    Get recommended hotels based on user booking history
 router.get('/', protect, async (req, res) => {
@@ -14,7 +16,7 @@ router.get('/', protect, async (req, res) => {
 
     if (bookings.length === 0) {
       // New user — return top-rated hotels
-      const popular = await Hotel.find().sort({ rating: -1, bookingCount: -1 }).limit(6);
+      const popular = await Hotel.find(ACTIVE_FILTER).sort({ rating: -1, bookingCount: -1 }).limit(6);
       return res.json(popular);
     }
 
@@ -25,6 +27,7 @@ router.get('/', protect, async (req, res) => {
 
     // Find similar hotels (same locations OR similar price range, excluding already booked)
     const recommended = await Hotel.find({
+      ...ACTIVE_FILTER,
       _id: { $nin: bookedHotelIds },
       $or: [
         { location: { $in: locations } },
@@ -37,7 +40,7 @@ router.get('/', protect, async (req, res) => {
     // If not enough recommendations, fill with top-rated
     if (recommended.length < 6) {
       const moreIds = [...bookedHotelIds, ...recommended.map(h => h._id.toString())];
-      const more = await Hotel.find({ _id: { $nin: moreIds } })
+      const more = await Hotel.find({ ...ACTIVE_FILTER, _id: { $nin: moreIds } })
         .sort({ rating: -1 })
         .limit(6 - recommended.length);
       recommended.push(...more);
@@ -57,6 +60,7 @@ router.get('/search', async (req, res) => {
     if (!q || q.length < 2) return res.json([]);
 
     const suggestions = await Hotel.find({
+      ...ACTIVE_FILTER,
       $or: [
         { name: { $regex: q, $options: 'i' } },
         { location: { $regex: q, $options: 'i' } },
